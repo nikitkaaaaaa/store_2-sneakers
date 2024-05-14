@@ -28,7 +28,7 @@ const Basket = () => {
               }}
             >
               {loaderArray.map((index) => (
-                <div style={{ width: "300px", height: "420px" }} key={index}>
+                <div style={{ width: "300px", height:    "420px" }} key={index}>
                   <ContentLoader 
                     speed={2}
                     width={400}
