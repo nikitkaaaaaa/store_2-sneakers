@@ -1,0 +1,20 @@
+.basketFalse{
+    width: 30px;
+    height: 30px;
+    padding-right: 30px;
+}
+.basketTrue{
+    width: 30px;
+    height: 30px;
+    padding-right: 30px;
+}
+.products{
+    display: flex;
+    flex-direction : column;
+    padding: 0px 0px 30px 0px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+/* .products :hover{
+    border: 10px solid;
+} */
