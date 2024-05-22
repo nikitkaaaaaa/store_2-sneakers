@@ -4,123 +4,127 @@
       "id": "32432457",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/26c/500_500_1/op101g1cwmnqa7wfx3pe5dlk93wqsh62.JPG",
       "name": "Nike Air Max 90",
-      "price": 23999
+      "price": 23999,
+      "rating": 6
     },
     {
       "id": "5s15s7",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/05f/500_500_1/7qopyc283irbf9r306fck2kfoqiw9ag3.jpg",
       "name": "Nike Blazer Low 77 Jumbo",
-      "price": 11899
+      "price": 11899,
+      "rating": 7
     },
     {
       "id": "515a7",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/9f2/500_500_1/ext1n9ai03i3l1t7i0lp062ojak4oyxv.JPG",
       "name": "Nike Blazer Low 77 Jumbo",
-      "price": 16999
+      "price": 16999,
+      "rating": 6
     },
     {
       "id": "515s7",
       "image": "https://media.garderobo.ru/streetbeat/medium/93c150665792df2c7e70421b3261d9f8.jpg",
       "name": " Reebok BB 4000 II",
-      "price": 12999
+      "price": 12999,
+      "rating": 10
     },
     {
       "id": "51dsfsdf",
       "image": "https://static.street-beat.ru/upload/iblock/865/ji2gorcmbsnl1hbkkl8m0hdzprijuxk3.jpg",
       "name": "PUMA CA Pro Classic",
-      "price": 13999
+      "price": 13999,
+      "rating": 8
     },
     {
       "id": "5sss7",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/20b/500_500_1/9e0zlv4jesex6jtxpoy9l74tj4zcqe38.JPG",
       "name": "adidas Rivalry Low",
-      "price": 18499
+      "price": 18499,
+      "rating": 4
     },
     {
       "id": "515ss7",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/422/500_500_1/gqe4wl9fs5wcs6s0uv2ffi5aj03cvj1c.jpg",
       "name": "adidas Ozweego",
-      "price": 12599
+      "price": 12599,
+      "rating": 9
     },
     {
       "id": "51er",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/37c/500_500_1/lddy8t7fd3s832ful8vasv74slux8m3y.jpg",
       "name": " PUMA Velophasis Phased",
-      "price": 16999
+      "price": 16999,
+      "rating": 8
     },
     {
       "id": "5dsfsdf7",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/990/500_500_1/56dz1aruom9wz83m0qkmkd1b4iwnja3r.jpg",
       "name": "STREETBEAT Dandy",
-      "price": 6499
+      "price": 6499,
+      "rating": 4
     },
     {
       "id": "5asd7",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/9a1/500_500_1/sj9qnu0ki0qg8sqk15urhvpik1amm2zd.JPG",
       "name": "Nike Dunk Low Retro",
-      "price": 20999
+      "price": 20999,
+      "rating": 10
     },
     {
       "id": "515we7",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/9d6/500_500_1/ly8990gtz6vma4a5lynl5xefkbo759tb.JPG",
       "name": "Jordan Stadium 90",
-      "price": 20991
+      "price": 20991,
+      "rating": 8
     },
     {
       "id": "5157123",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/042/500_500_1/niixx9i9uhfj6rk6fryqtawe2yqb16wq.jpg",
       "name": "PUMA Slipstream",
-      "price": 10499
+      "price": 10499,
+      "rating": 5
     },
     {
       "id": "5157AAA123",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
       "name": "Reebok Club C 85",
-      "price": 6699
+      "price": 6699,
+      "rating": 8
     },
     {
       "id": "marya",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/718/500_500_1/ob2lu0xnem269c55spds18wg4z2ml6vp.jpg",
       "name": "STREETBEAT Cheek",
-      "price": 6689
+      "price": 6689,
+      "rating": 8
     },
     {
       "id": "asdad1",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/592/500_500_1/xjlfxgf18ovpa7rfoq4uhn0x8n0juo5q.jpg",
       "name": "New Balance 237",
-      "price": 10199
+      "price": 10199,
+      "rating": 6
     },
     {
       "id": "1tryrty",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/8f5/500_500_1/fz1dcb475fz8602c4984p5m34ynlpg2o.jpg",
       "name": "ASICS EX89",
-      "price": 12599
+      "price": 12599,
+      "rating": 9
     }
   ],
   "basket": [
     {
-      "id": "e96e",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/20b/500_500_1/9e0zlv4jesex6jtxpoy9l74tj4zcqe38.JPG",
-      "price": 18499,
-      "name": "adidas Rivalry Low"
+      "id": "ef40",
+      "image": "https://media.garderobo.ru/streetbeat/medium/93c150665792df2c7e70421b3261d9f8.jpg",
+      "price": 12999,
+      "name": " Reebok BB 4000 II"
     },
     {
-      "id": "495e",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/042/500_500_1/niixx9i9uhfj6rk6fryqtawe2yqb16wq.jpg",
-      "price": 10499,
-      "name": "PUMA Slipstream"
-    },
-    {
-      "id": "a59a",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
-      "price": 6699,
-      "name": "Reebok Club C 85"
-    },
-    {
-      "id": "f124",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/718/500_500_1/ob2lu0xnem269c55spds18wg4z2ml6vp.jpg",
-      "price": 6689,
-      "name": "STREETBEAT Cheek"
+      "id": "ebdb",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/990/500_500_1/56dz1aruom9wz83m0qkmkd1b4iwnja3r.jpg",
+      "price": 6499,
+      "name": "STREETBEAT Dandy"
     }
   ]
 }

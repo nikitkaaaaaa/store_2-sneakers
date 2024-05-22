@@ -3,12 +3,14 @@ import { useGetsneakersQuery } from '../api/Sneakers';
 import './Style_main.css';
 import { useAddbasketMutation } from '../api/Basket';
 import ContentLoader from "react-content-loader";
-import { filter } from '../searchitem/filter';
 
-const Main = ({ search }) => {
+import Filter from '../filter/Filter';
+
+const Main = () => {
   const { isLoading, data = [] } = useGetsneakersQuery();
   const [addbasket] = useAddbasketMutation(); 
   const [cardStates, setCardStates] = useState({});
+  const [filterdata, setfilterdata] = useState([]);
   const addtobasket = (item, itemId) => {
     addbasket({ image: item.image, price: item.price, name: item.name });
     setCardStates(prevState => ({
@@ -16,13 +18,9 @@ const Main = ({ search }) => {
       [itemId]: !prevState[itemId]
     }));
   };
-  const [filterdata,setfilterdata] = useState([]);
-  useEffect(()=>{
-    setfilterdata(filter(data,search))
-  },[data,search])
   const loaderArray = Array.from({ length: 16 }, (_, index) => index);
   return (
-    <div style={{ background: "white", paddingTop: "50px" }}>
+    <div style={{ background: "white", paddingTop: "50px"}}>
       <div
         style={{
           width: "95%",
@@ -31,7 +29,7 @@ const Main = ({ search }) => {
           background: "white",
         }}
       >
-        <h1>Все кроссовки</h1>
+        <Filter/>
         {isLoading ? (
           <div
             style={{
@@ -70,7 +68,7 @@ const Main = ({ search }) => {
               justifyContent: "space-between",
             }}
           >
-            {filterdata.map((item) => (
+            {data.map((item) => (
               <div key={item.id} className="products">
                 <div
                   style={{
