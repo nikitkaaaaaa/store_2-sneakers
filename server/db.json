@@ -1,6 +1,27 @@
 {
   "sneakers": [
     {
+      "id": "5157AAA123",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
+      "name": "Reebok Club C 85",
+      "price": 6699,
+      "rating": 7
+    },
+    {
+      "id": "marya",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/718/500_500_1/ob2lu0xnem269c55spds18wg4z2ml6vp.jpg",
+      "name": "STREETBEAT Cheek",
+      "price": 6689,
+      "rating": 8
+    },
+    {
+      "id": "asdad1",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/592/500_500_1/xjlfxgf18ovpa7rfoq4uhn0x8n0juo5q.jpg",
+      "name": "New Balance 237",
+      "price": 10199,
+      "rating": 6
+    },
+    {
       "id": "32432457",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/26c/500_500_1/op101g1cwmnqa7wfx3pe5dlk93wqsh62.JPG",
       "name": "Nike Air Max 90",
@@ -26,7 +47,7 @@
       "image": "https://media.garderobo.ru/streetbeat/medium/93c150665792df2c7e70421b3261d9f8.jpg",
       "name": " Reebok BB 4000 II",
       "price": 12999,
-      "rating": 10
+      "rating": 6
     },
     {
       "id": "51dsfsdf",
@@ -47,7 +68,7 @@
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/422/500_500_1/gqe4wl9fs5wcs6s0uv2ffi5aj03cvj1c.jpg",
       "name": "adidas Ozweego",
       "price": 12599,
-      "rating": 9
+      "rating": 7
     },
     {
       "id": "51er",
@@ -85,27 +106,6 @@
       "rating": 5
     },
     {
-      "id": "5157AAA123",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
-      "name": "Reebok Club C 85",
-      "price": 6699,
-      "rating": 8
-    },
-    {
-      "id": "marya",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/718/500_500_1/ob2lu0xnem269c55spds18wg4z2ml6vp.jpg",
-      "name": "STREETBEAT Cheek",
-      "price": 6689,
-      "rating": 8
-    },
-    {
-      "id": "asdad1",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/592/500_500_1/xjlfxgf18ovpa7rfoq4uhn0x8n0juo5q.jpg",
-      "name": "New Balance 237",
-      "price": 10199,
-      "rating": 6
-    },
-    {
       "id": "1tryrty",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/8f5/500_500_1/fz1dcb475fz8602c4984p5m34ynlpg2o.jpg",
       "name": "ASICS EX89",
@@ -115,16 +115,22 @@
   ],
   "basket": [
     {
-      "id": "ef40",
-      "image": "https://media.garderobo.ru/streetbeat/medium/93c150665792df2c7e70421b3261d9f8.jpg",
-      "price": 12999,
-      "name": " Reebok BB 4000 II"
-    },
-    {
-      "id": "ebdb",
+      "id": "b000",
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/990/500_500_1/56dz1aruom9wz83m0qkmkd1b4iwnja3r.jpg",
       "price": 6499,
       "name": "STREETBEAT Dandy"
+    },
+    {
+      "id": "ec63",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/718/500_500_1/ob2lu0xnem269c55spds18wg4z2ml6vp.jpg",
+      "price": 6689,
+      "name": "STREETBEAT Cheek"
+    },
+    {
+      "id": "023d",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
+      "price": 6699,
+      "name": "Reebok Club C 85"
     }
   ]
 }

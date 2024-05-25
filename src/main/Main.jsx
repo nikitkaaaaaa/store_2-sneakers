@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useGetsneakersQuery } from '../api/Sneakers';
-import './Style_main.css';
 import { useAddbasketMutation } from '../api/Basket';
-import ContentLoader from "react-content-loader";
-
-import Filter from '../filter/Filter';
+import Search from '../search/Search';
+import Choise from '../choise/Choise';
+import { filterproducts } from '../filterproducts/filterproducts';
+import Skeleton from '../skeleton/Skeleton';
 
 const Main = () => {
   const { isLoading, data = [] } = useGetsneakersQuery();
   const [addbasket] = useAddbasketMutation(); 
-  const [cardStates, setCardStates] = useState({});
   const [filterdata, setfilterdata] = useState([]);
+  const [search,setsearch] = useState('');
+  const [choise,setchoise] = useState('price');
+  const [cardStates, setCardStates] = useState(() => {
+    const storedCardStates = localStorage.getItem('cardStates');
+    return storedCardStates ? JSON.parse(storedCardStates) : {};
+  });
+
   const addtobasket = (item, itemId) => {
     addbasket({ image: item.image, price: item.price, name: item.name });
     setCardStates(prevState => ({
@@ -18,7 +24,18 @@ const Main = () => {
       [itemId]: !prevState[itemId]
     }));
   };
+
+  useEffect(() => {
+    let filter = filterproducts(data, search, choise);
+    setfilterdata(filter);
+  }, [data, search, choise]);
+
+  useEffect(() => {
+    localStorage.setItem('cardStates', JSON.stringify(cardStates));
+  }, [cardStates]);
+
   const loaderArray = Array.from({ length: 16 }, (_, index) => index);
+
   return (
     <div style={{ background: "white", paddingTop: "50px"}}>
       <div
@@ -29,33 +46,24 @@ const Main = () => {
           background: "white",
         }}
       >
-        <Filter/>
+        <div style={{display : 'flex', alignItems : 'center',justifyContent : 'space-between',paddingBottom : '70px'}}>
+          <h1>Все кросовки</h1>
+          <div style={{display : 'flex'}}>
+            <div style={{paddingRight : '15px'}}><Choise onChoise = {setchoise}/></div>
+            <div><Search onSearch = {setsearch}/></div>
+          </div>
+        </div>
         {isLoading ? (
           <div
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "50px 0px",
               justifyContent: "space-between",
             }}
           >
             {loaderArray.map((index) => (
               <div style={{ width: "300px", height: "420px" }} key={index}>
-                <ContentLoader
-                  key={index}
-                  speed={2}
-                  width={400}
-                  height={460}
-                  viewBox="0 0 400 460"
-                  backgroundColor="#f3f3f3"
-                  foregroundColor="#ecebeb"
-                >
-                  <rect x="0" y="0" rx="2" ry="2" width="300" height="300" />
-                  <rect x="0" y="315" rx="2" ry="2" width="300" height="15" />
-                  <rect x="0" y="341" rx="2" ry="2" width="225" height="15" />
-                  <rect x="0" y="370" rx="2" ry="2" width="125" height="25" />
-                  <rect x="261" y="370" rx="2" ry="2" width="41" height="25" />
-                </ContentLoader>
+               <Skeleton index = {index}/>
               </div>
             ))}
           </div>
@@ -68,7 +76,7 @@ const Main = () => {
               justifyContent: "space-between",
             }}
           >
-            {data.map((item) => (
+            {filterdata.map((item) => (
               <div key={item.id} className="products">
                 <div
                   style={{

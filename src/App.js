@@ -1,14 +1,18 @@
 import React from 'react'
 import Header from './header/Header'
 import Footer from './footer/Footer'
-import Main from './main/Main'
+import { useSelector } from 'react-redux'
+import './Style.css'
+import NotEmptyBasket from './basket/NotEmptyBasket'
 const App = () => {
+  // const statusOfBasket = useSelector(state => state.statusOfBasket.statusOfBasket);
+  
   return (
-    <div style={{width : '90%', margin : 'auto'}}>
-      <Header/>
-      <Main/>
-      {/* <Filter/> */}
-      <Footer/>
+    // <div className={statusOfBasket ? 'basketStatusTrue' : 'basketStatusFalse'}>
+    <div className='basketStatusFalse'>
+      <NotEmptyBasket/>
+      {/* <Header/>
+      <Footer/> */}
     </div>
   )
 }
