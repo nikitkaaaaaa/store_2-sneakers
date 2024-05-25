@@ -87,7 +87,7 @@ const Main = () => {
                   <img
                     src={item.image}
                     alt=""
-                    style={{ width: "100%", height: "100%" }}
+                    className='productsImage'
                   />
                 </div>
                 <div style={{ paddingLeft: "30px" }}>

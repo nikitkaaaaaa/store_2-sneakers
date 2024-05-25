@@ -3,27 +3,29 @@ import { useGetbasketQuery } from '../api/Basket'
 import NotEmptyBasket from './NotEmptyBasket';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../routes/Routes';
+import { useDispatch } from 'react-redux';
+import { closebasket } from '../redux/checkbasket';
 
 const EmptyBasket = () => {
     const {data = []} = useGetbasketQuery();
     const navigate = useNavigate();
-    const goToHome = () => {
-      navigate(routes.main)
+    const dispatch = useDispatch();
+    const goToMain = () =>{
+      navigate(routes.main);
+      dispatch(closebasket());
     }
   return (
-    <div style={{ background: 'white', padding: "50px 0px", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ margin: 'auto', textAlign: 'center' }}>
+    <div className='EmptyBasket'>
+      <div style={{margin : 'auto'}}>
         <img
           src="https://github.com/Archakov06/react-pizza-v2/blob/master/src/assets/img/empty-cart.png?raw=true"
           alt=""
-          style={{ width: '300px', height: '300px', paddingTop: '50px', margin: 'auto' }}
+          style={{ width: '200px', height: '200px', margin: 'auto' }}
         />
-        <h1>Корзина пустая</h1>
-      </div>
-      <button
-        onClick={() => goToHome()}
+        <h1 style={{textAlign : 'center'}}>Корзина пустая</h1>
+       <div style={{margin : 'auto'}}> <button
+        onClick={goToMain}
         style={{
-          marginTop: '20px',
           padding: '13px 25px',
           background: 'white',
           border: '1px solid gray',
@@ -35,7 +37,8 @@ const EmptyBasket = () => {
           style={{ width: '10px', height: '10px', paddingRight: '5px' }}
         />
         Вернуться назад
-      </button>
+      </button></div>
+      </div>
     </div>
   )
 }

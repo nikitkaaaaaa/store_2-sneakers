@@ -6,7 +6,8 @@ import { routes } from '../routes/Routes';
 import { useGetbasketQuery } from '../api/Basket';
 import Basket from '../basket/Basket';
 import { useDispatch } from 'react-redux';
-import { openbasket } from '../redux/statusOfBasket';
+import { closebasket, openbasket } from '../redux/checkbasket';
+
 
 const Header = () => {
   const { data = [] } = useGetbasketQuery();
@@ -19,6 +20,7 @@ const Header = () => {
   }
   const goToMain = () => {
     navigate(routes.main);
+    dispatch(closebasket());
   }
   return (
     <>

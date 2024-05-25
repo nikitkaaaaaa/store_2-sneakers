@@ -1,21 +1,32 @@
 import React from 'react'
 import { useGetbasketQuery, useRemoveToBasketMutation } from '../api/Basket'
 import ContentLoader from "react-content-loader"
+import { useNavigate } from 'react-router-dom';
+import { routes } from '../routes/Routes';
+import { useDispatch } from 'react-redux';
+import { closebasket } from '../redux/checkbasket';
 const NotEmptyBasket = () => {
     const {isLoading,data = []} = useGetbasketQuery();
     const [removetobasket] = useRemoveToBasketMutation();
     const loaderArray = Array.from({ length: 5 }, (_, index) => index);
+    const total_price_basket = data ? data.reduce((total, item) => total + item.price, 0) : 0;
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const goToMain = () =>{
+      navigate(routes.main);
+      dispatch(closebasket());
+    }
     return (
-      <div style={{ background: "white", paddingTop: "50px" }}>
+      <div className='notEmptyBasket'>
         <div
           style={{
-            width: "95%",
-                  margin: "auto",
-            paddingBottom: "70px",
             background: "white",
           }}
         >
-          <h1 style={{paddingBottom : '70px'}}>Мои товары</h1>
+        <div style={{display : 'flex',  alignItems : 'center',height : '30px',paddingBottom : '50px'}}>
+          <img src="https://cdn.icon-icons.com/icons2/1302/PNG/96/leftarrowsign_85800.png" alt="" style={{width : '20px', height : '20px',paddingRight : '20px'}} onClick={goToMain}/>
+          <h2>Корзина</h2>
+        </div>
           {isLoading ? (
             <div
               style={{
@@ -48,17 +59,15 @@ const NotEmptyBasket = () => {
             <div
               style={{
                 display: "flex",
-                flexWrap: "wrap",
-                gap: "50px 0px",
-                justifyContent: "space-between",
+                flexDirection : 'column'
               }}
             >
               {data.map((item) => (
-                <div key={item.id} className="products">
+                <div key={item.id} className="productsBasket">
                   <div
                     style={{
-                      width: "300px",
-                      height: "300px",
+                      width: "100px",
+                      height: "100px",
                     }}
                   >
                     <img
@@ -67,32 +76,39 @@ const NotEmptyBasket = () => {
                       style={{ width: "100%", height: "100%" }}
                     />
                   </div>
-                  <div style={{ paddingLeft: "30px" }}>
-                    <b>Мужские кросовки</b>
+                  <div style={{display : 'flex',flexDirection : 'column', justifyContent : 'center', paddingLeft : '20px'}}>
+                  <div style={{paddingBottom : '10px'}}>
+                    Кросовки {item.name}
                   </div>
-                  <div style={{ paddingLeft: "30px" }}>
-                    <b>{item.name}</b>
+
+                    <div >
+                      <div>
+                        <b style={{alignSelf : 'flex-start'}}>{item.price} руб.</b>
+                      </div>
                   </div>
-                  <br />
-                  <div
-                    style={{ display: "flex", justifyContent: "space-between" }}
-                  >
-                    <div style={{}}>
-                      <div style={{ color: "gray", paddingLeft: "30px" }}>
-                        ЦЕНА:
-                      </div>
-                      <div style={{ paddingLeft: "30px" }}>
-                        <b>{item.price} руб.</b>
-                      </div>
-                     <div style={{}}><img src="https://cdn-icons-png.flaticon.com/128/7709/7709786.png" alt="" onClick={() => removetobasket(item.id)}
-                      style={{width : '20px', height : '20px',position : "relative",left : '250px',bottom : '23px'}}/></div>
-                    </div>
+                  <img 
+                      src="https://cdn.icon-icons.com/icons2/1510/PNG/96/closecrossthincircularbutton_104665.png" 
+                      alt="" 
+                      onClick={() => removetobasket(item.id)}
+                      style={{
+                        width: '20px', 
+                        height: '20px',
+                        position: 'absolute',
+                        top: '0',
+                        right: '0',
+                        padding : '15px 15px 0px 0px '
+                      }}
+                    />
                   </div>
                 </div>
               ))}
             </div>
           )}
         </div>
+       <div style={{display : 'flex', justifyContent : 'space-between', paddingTop : '10px'}}>
+        <div>Итого:</div>
+        <div><b>{total_price_basket}  ₽</b></div>
+       </div>
       </div>
     );
 }
