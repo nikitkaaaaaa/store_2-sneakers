@@ -1,4 +1,5 @@
 export const routes = {
     main : '/',
-    basket : '/basket'
+    basket : '/basket',
+    bookmarks : '/bookmarks'
 }

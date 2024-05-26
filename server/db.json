@@ -113,5 +113,56 @@
       "rating": 9
     }
   ],
-  "basket": []
+  "basket": [
+    {
+      "id": "231d",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
+      "price": 6699,
+      "name": "Reebok Club C 85"
+    }
+  ],
+  "booksmarks": [
+    {
+      "id": "7757",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/718/500_500_1/ob2lu0xnem269c55spds18wg4z2ml6vp.jpg",
+      "price": 6689,
+      "name": "STREETBEAT Cheek"
+    },
+    {
+      "id": "4407",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/592/500_500_1/xjlfxgf18ovpa7rfoq4uhn0x8n0juo5q.jpg",
+      "price": 10199,
+      "name": "New Balance 237"
+    },
+    {
+      "id": "8b2f",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/9a1/500_500_1/sj9qnu0ki0qg8sqk15urhvpik1amm2zd.JPG",
+      "price": 20999,
+      "name": "Nike Dunk Low Retro"
+    },
+    {
+      "id": "24c3",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/9d6/500_500_1/ly8990gtz6vma4a5lynl5xefkbo759tb.JPG",
+      "price": 20991,
+      "name": "Jordan Stadium 90"
+    },
+    {
+      "id": "fef2",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/20b/500_500_1/9e0zlv4jesex6jtxpoy9l74tj4zcqe38.JPG",
+      "price": 18499,
+      "name": "adidas Rivalry Low"
+    },
+    {
+      "id": "9ae1",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/26c/500_500_1/op101g1cwmnqa7wfx3pe5dlk93wqsh62.JPG",
+      "price": 23999,
+      "name": "Nike Air Max 90"
+    },
+    {
+      "id": "3135",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
+      "price": 6699,
+      "name": "Reebok Club C 85"
+    }
+  ]
 }

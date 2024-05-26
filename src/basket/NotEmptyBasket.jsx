@@ -19,9 +19,7 @@ const NotEmptyBasket = () => {
     return (
       <div className='notEmptyBasket'>
         <div
-          style={{
-            background: "white",
-          }}
+         
         >
         <div style={{display : 'flex',  alignItems : 'center',height : '30px',paddingBottom : '50px'}}>
           <img src="https://cdn.icon-icons.com/icons2/1302/PNG/96/leftarrowsign_85800.png" alt="" style={{width : '20px', height : '20px',paddingRight : '20px'}} onClick={goToMain}/>
@@ -83,7 +81,7 @@ const NotEmptyBasket = () => {
 
                     <div >
                       <div>
-                        <b style={{alignSelf : 'flex-start'}}>{item.price} руб.</b>
+                        <b style={{alignSelf : 'flex-start'}}>{item.price} <b>₽</b></b>
                       </div>
                   </div>
                   <img 

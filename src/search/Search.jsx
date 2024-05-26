@@ -9,7 +9,7 @@ const Search = ({ onSearch }) => {
     return (
         <div>
              <input type="text" placeholder='Поиск...' value={value} onChange={searchinput} style={{
-                outline : 'none',padding : '7px 15px',width : '150px',borderRadius : '5px', border : '1px solid gray'}}/>
+                outline : 'none',padding : '7px 15px',width : '190px',borderRadius : '5px', border : '1px solid gray'}}/>
         </div>
     )
 }

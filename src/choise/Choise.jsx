@@ -6,9 +6,10 @@ const Choise = ({ onChoise }) => {
     }
   return (
     <div>
-      <select name="" id="" onChange={choise} style={{padding : '7px 15px',width : '150px', borderRadius : '5px',outline : 'none'}}>
-        <option value="price">По цене</option>
+      <select name="" id="" onChange={choise} style={{padding : '7px 15px',width : '190px', borderRadius : '5px',outline : 'none'}}>
         <option value="rating">По рейтенгу</option>
+        <option value="smallPrice">{'По цене (маленькая)' }</option>
+        <option value="bigPrice">{'По цене (дорогая)' }</option>
       </select>
     </div>
   )

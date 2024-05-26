@@ -7,6 +7,7 @@ import { useGetbasketQuery } from '../api/Basket';
 import Basket from '../basket/Basket';
 import { useDispatch } from 'react-redux';
 import { closebasket, openbasket } from '../redux/checkbasket';
+import Bookmarks from '../bookmarks/Bookmarks';
 
 
 const Header = () => {
@@ -22,6 +23,9 @@ const Header = () => {
     navigate(routes.main);
     dispatch(closebasket());
   }
+  const goTOBookmarks = () => {
+    navigate(routes.bookmarks);
+  }
   return (
     <>
       <div className='header'>
@@ -32,14 +36,19 @@ const Header = () => {
             <div style={{ color: 'gray' }}>Магазин лучших кроссовок</div>
           </div>
         </div>
+        <div style={{display : 'flex', alignItems : 'center'}} onClick={goTOBookmarks}>
+          <div style={{paddingRight : '10px'}}>Закладки</div>
+          <img src="https://cdn.icon-icons.com/icons2/38/PNG/96/hearts_heart_love_favorite_5565.png" alt="" className='bookmarks'/>
+        </div>
         <div style={{ display: 'flex', alignItems: 'center', padding: '50px' }}>
           <img src="https://cdn-icons-png.flaticon.com/128/1124/1124199.png" alt="" className='basket' onClick={goToBasket}/>
-          <div>{total_price_basket} руб.</div>
+          <div>{total_price_basket} <b>₽</b></div>
         </div>
       </div>
       <Routes>
         <Route path={routes.main} element={<Main />} />
         <Route path={routes.basket} element={<Basket />} />
+        <Route path={routes.bookmarks} element={<Bookmarks />} />
       </Routes>
     </>
   );

@@ -5,13 +5,15 @@ import Search from '../search/Search';
 import Choise from '../choise/Choise';
 import { filterproducts } from '../filterproducts/filterproducts';
 import Skeleton from '../skeleton/Skeleton';
+import { useAddBooksmarksMutation } from '../api/Booksmarks';
 
 const Main = () => {
   const { isLoading, data = [] } = useGetsneakersQuery();
   const [addbasket] = useAddbasketMutation(); 
+  const [addBooksmarks] = useAddBooksmarksMutation();
   const [filterdata, setfilterdata] = useState([]);
   const [search,setsearch] = useState('');
-  const [choise,setchoise] = useState('price');
+  const [choise,setchoise] = useState("smallPrice");
   const [cardStates, setCardStates] = useState(() => {
     const storedCardStates = localStorage.getItem('cardStates');
     return storedCardStates ? JSON.parse(storedCardStates) : {};
@@ -25,6 +27,10 @@ const Main = () => {
     }));
   };
 
+  const AddToBooksmarks = (item) => { 
+    addBooksmarks({ image: item.image, price: item.price, name: item.name });
+  }
+  
   useEffect(() => {
     let filter = filterproducts(data, search, choise);
     setfilterdata(filter);
@@ -37,7 +43,7 @@ const Main = () => {
   const loaderArray = Array.from({ length: 16 }, (_, index) => index);
 
   return (
-    <div style={{ background: "white", paddingTop: "50px"}}>
+    <div style={{ background: "black", paddingTop: "50px", opacity : '50%'}}>
       <div
         style={{
           width: "95%",
@@ -68,7 +74,7 @@ const Main = () => {
             ))}
           </div>
         ) : (
-          <div
+            <div
             style={{
               display: "flex",
               flexWrap: "wrap",
@@ -84,6 +90,8 @@ const Main = () => {
                     height: "300px",
                   }}
                 >
+                  <img src="https://cdn.icon-icons.com/icons2/2459/PNG/96/favourite_heart_button_like_icon_149069.png" alt="" style={{width : '30px', height : '30px'}}
+                   onClick={() => AddToBooksmarks(item)}/>
                   <img
                     src={item.image}
                     alt=""
@@ -105,7 +113,7 @@ const Main = () => {
                       ЦЕНА:
                     </div>
                     <div style={{ paddingLeft: "30px" }}>
-                      <b>{item.price} руб.</b>
+                      <b>{item.price} <b>₽</b></b>
                     </div>
                   </div>
                   <div onClick={() => addtobasket(item, item.id)}>
