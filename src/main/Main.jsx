@@ -1,49 +1,49 @@
-import React, { useEffect, useState } from 'react';
-import { useGetsneakersQuery } from '../api/Sneakers';
-import { useAddbasketMutation } from '../api/Basket';
-import Search from '../search/Search';
-import Choise from '../choise/Choise';
-import { filterproducts } from '../filterproducts/filterproducts';
-import Skeleton from '../skeleton/Skeleton';
-import { useAddBooksmarksMutation } from '../api/Booksmarks';
+import React, { useEffect, useState } from "react";
+import { useGetsneakersQuery } from "../api/Sneakers";
+import { useAddbasketMutation } from "../api/Basket";
+import Search from "../search/Search";
+import Choise from "../choise/Choise";
+import { filterproducts } from "../filterproducts/filterproducts";
+import Skeleton from "../skeleton/Skeleton";
+import { useAddBooksmarksMutation } from "../api/Booksmarks";
 
 const Main = () => {
   const { isLoading, data = [] } = useGetsneakersQuery();
-  const [addbasket] = useAddbasketMutation(); 
+  const [addbasket] = useAddbasketMutation();
   const [addBooksmarks] = useAddBooksmarksMutation();
   const [filterdata, setfilterdata] = useState([]);
-  const [search,setsearch] = useState('');
-  const [choise,setchoise] = useState("smallPrice");
+  const [search, setsearch] = useState("");
+  const [choise, setchoise] = useState("smallPrice");
   const [cardStates, setCardStates] = useState(() => {
-    const storedCardStates = localStorage.getItem('cardStates');
+    const storedCardStates = localStorage.getItem("cardStates");
     return storedCardStates ? JSON.parse(storedCardStates) : {};
   });
 
   const addtobasket = (item, itemId) => {
     addbasket({ image: item.image, price: item.price, name: item.name });
-    setCardStates(prevState => ({
+    setCardStates((prevState) => ({
       ...prevState,
-      [itemId]: !prevState[itemId]
+      [itemId]: !prevState[itemId],
     }));
   };
 
-  const AddToBooksmarks = (item) => { 
+  const AddToBooksmarks = (item) => {
     addBooksmarks({ image: item.image, price: item.price, name: item.name });
-  }
-  
+  };
+
   useEffect(() => {
     let filter = filterproducts(data, search, choise);
     setfilterdata(filter);
   }, [data, search, choise]);
 
   useEffect(() => {
-    localStorage.setItem('cardStates', JSON.stringify(cardStates));
+    localStorage.setItem("cardStates", JSON.stringify(cardStates));
   }, [cardStates]);
 
   const loaderArray = Array.from({ length: 16 }, (_, index) => index);
 
   return (
-    <div style={{ background: "black", paddingTop: "50px", opacity : '50%'}}>
+    <div style={{ paddingTop: "50px" }}>
       <div
         style={{
           width: "95%",
@@ -52,11 +52,22 @@ const Main = () => {
           background: "white",
         }}
       >
-        <div style={{display : 'flex', alignItems : 'center',justifyContent : 'space-between',paddingBottom : '70px'}}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingBottom: "70px",
+          }}
+        >
           <h1>Все кросовки</h1>
-          <div style={{display : 'flex'}}>
-            <div style={{paddingRight : '15px'}}><Choise onChoise = {setchoise}/></div>
-            <div><Search onSearch = {setsearch}/></div>
+          <div style={{ display: "flex" }}>
+            <div style={{ paddingRight: "15px" }}>
+              <Choise onChoise={setchoise} />
+            </div>
+            <div>
+              <Search onSearch={setsearch} />
+            </div>
           </div>
         </div>
         {isLoading ? (
@@ -69,16 +80,16 @@ const Main = () => {
           >
             {loaderArray.map((index) => (
               <div style={{ width: "300px", height: "420px" }} key={index}>
-               <Skeleton index = {index}/>
+                <Skeleton index={index} />
               </div>
             ))}
           </div>
         ) : (
-            <div
+          <div
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "50px 0px",
+              gap: "80px 30px",
               justifyContent: "space-between",
             }}
           >
@@ -90,13 +101,13 @@ const Main = () => {
                     height: "300px",
                   }}
                 >
-                  <img src="https://cdn.icon-icons.com/icons2/2459/PNG/96/favourite_heart_button_like_icon_149069.png" alt="" style={{width : '30px', height : '30px'}}
-                   onClick={() => AddToBooksmarks(item)}/>
                   <img
-                    src={item.image}
+                    src="https://cdn.icon-icons.com/icons2/2459/PNG/96/favourite_heart_button_like_icon_149069.png"
                     alt=""
-                    className='productsImage'
+                    style={{ width: "30px", height: "30px" }}
+                    onClick={() => AddToBooksmarks(item)}
                   />
+                  <img src={item.image} alt="" className="productsImage" />
                 </div>
                 <div style={{ paddingLeft: "30px" }}>
                   <b>Мужские кроссовки</b>
@@ -113,7 +124,9 @@ const Main = () => {
                       ЦЕНА:
                     </div>
                     <div style={{ paddingLeft: "30px" }}>
-                      <b>{item.price} <b>₽</b></b>
+                      <b>
+                        {item.price} <b>₽</b>
+                      </b>
                     </div>
                   </div>
                   <div onClick={() => addtobasket(item, item.id)}>

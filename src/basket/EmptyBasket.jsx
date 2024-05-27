@@ -1,55 +1,51 @@
-import React from 'react'
-import { useGetbasketQuery } from '../api/Basket'
-import NotEmptyBasket from './NotEmptyBasket';
-import { useNavigate } from 'react-router-dom';
-import { routes } from '../routes/Routes';
-import { useDispatch } from 'react-redux';
-import { closebasket } from '../redux/checkbasket';
+import React from "react";
+import { useGetbasketQuery } from "../api/Basket";
+import NotEmptyBasket from "./NotEmptyBasket";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../routes/Routes";
+import { useDispatch } from "react-redux";
 
 const EmptyBasket = () => {
-    const {data = []} = useGetbasketQuery();
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const goToMain = () =>{
-      navigate(routes.main);
-      dispatch(closebasket());
-    }
+  const { data = [] } = useGetbasketQuery();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const goToMain = () => {
+    navigate(routes.main);
+  };
   return (
-    <div className='EmptyBasket'>
-      <div style={{margin : 'auto'}}>
+    <div className="EmptyBasket">
+      <div style={{ margin: "auto" }}>
         <img
           src="https://github.com/Archakov06/react-pizza-v2/blob/master/src/assets/img/empty-cart.png?raw=true"
           alt=""
-          style={{ width: '200px', height: '200px', margin: 'auto' }}
+          style={{ width: "200px", height: "200px", margin: "auto" }}
         />
-        <h1 style={{textAlign : 'center'}}>Корзина пустая</h1>
-       <div style={{margin : 'auto'}}> <button
-        onClick={goToMain}
-        style={{
-          padding: '13px 25px',
-          background: 'white',
-          border: '1px solid gray',
-          borderRadius: '10px',
-        }}>
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/10728/10728732.png"
-          alt=""
-          style={{ width: '10px', height: '10px', paddingRight: '5px' }}
-        />
-        Вернуться назад
-      </button></div>
+        <h1 style={{ textAlign: "center" }}>Корзина пустая</h1>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          {" "}
+          <button
+            onClick={goToMain}
+            style={{
+              padding: "13px 25px",
+              background: "white",
+              border: "1px solid gray",
+              borderRadius: "10px",
+            }}
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/128/10728/10728732.png"
+              alt=""
+              style={{ width: "10px", height: "10px", paddingRight: "5px" }}
+            />
+            Вернуться назад
+          </button>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EmptyBasket
-
-
-
-
-
-
+export default EmptyBasket;
 
 // import React from 'react';
 // import { useDispatch } from 'react-redux';

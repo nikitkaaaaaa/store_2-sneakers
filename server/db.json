@@ -113,14 +113,7 @@
       "rating": 9
     }
   ],
-  "basket": [
-    {
-      "id": "231d",
-      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
-      "price": 6699,
-      "name": "Reebok Club C 85"
-    }
-  ],
+  "basket": [],
   "booksmarks": [
     {
       "id": "7757",
@@ -163,6 +156,12 @@
       "image": "https://static.street-beat.ru/upload/resize_cache/iblock/6d5/500_500_1/gd2l3br0n2ugh2jcu9hkzun7y6zq1eq1.jpg",
       "price": 6699,
       "name": "Reebok Club C 85"
+    },
+    {
+      "id": "176a",
+      "image": "https://static.street-beat.ru/upload/resize_cache/iblock/718/500_500_1/ob2lu0xnem269c55spds18wg4z2ml6vp.jpg",
+      "price": 6689,
+      "name": "STREETBEAT Cheek"
     }
   ]
 }
