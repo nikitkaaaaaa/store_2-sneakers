@@ -75,8 +75,8 @@ const NotEmptyBasket = () => {
                     width: "20px",
                     height: "20px",
                     position: "absolute",
-                    top: "0",
-                    right: "0",
+                    top: "10px",
+                    right: "10px",
                     padding: "15px 15px 0px 0px ",
                   }}
                 />

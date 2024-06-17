@@ -6,6 +6,7 @@ import Choise from "../choise/Choise";
 import { filterproducts } from "../filterproducts/filterproducts";
 import Skeleton from "../skeleton/Skeleton";
 import { useAddBooksmarksMutation } from "../api/Booksmarks";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const Main = () => {
   const { isLoading, data = [] } = useGetsneakersQuery();
@@ -13,35 +14,31 @@ const Main = () => {
   const [addBooksmarks] = useAddBooksmarksMutation();
   const [filterdata, setfilterdata] = useState([]);
   const [search, setsearch] = useState("");
-  const [choise, setchoise] = useState("smallPrice");
-  const [cardStates, setCardStates] = useState(() => {
-    const storedCardStates = localStorage.getItem("cardStates");
-    return storedCardStates ? JSON.parse(storedCardStates) : {};
-  });
-
+  const [choise, setchoise] = useState("rating");
+  const [addedToBasket, setAddedToBasket] = useState({});
+  const [addToBooksmarks, setAddToBooksmarks] = useState({});
+  const loaderArray = Array.from({ length: 16 }, (_, index) => index);
+  const [parent, enableAnimations] = useAutoAnimate();
   const addtobasket = (item, itemId) => {
     addbasket({ image: item.image, price: item.price, name: item.name });
-    setCardStates((prevState) => ({
-      ...prevState,
-      [itemId]: !prevState[itemId],
+    setAddedToBasket((prev) => ({
+      ...prev,
+      [itemId]: true,
     }));
   };
 
-  const AddToBooksmarks = (item) => {
+  const AddToBooksmarks = (item, itemId) => {
     addBooksmarks({ image: item.image, price: item.price, name: item.name });
+    setAddToBooksmarks((prev) => ({
+      ...prev,
+      [itemId]: true,
+    }));
   };
 
   useEffect(() => {
     let filter = filterproducts(data, search, choise);
     setfilterdata(filter);
   }, [data, search, choise]);
-
-  useEffect(() => {
-    localStorage.setItem("cardStates", JSON.stringify(cardStates));
-  }, [cardStates]);
-
-  const loaderArray = Array.from({ length: 16 }, (_, index) => index);
-
   return (
     <div style={{ paddingTop: "50px" }}>
       <div
@@ -86,6 +83,7 @@ const Main = () => {
           </div>
         ) : (
           <div
+            ref={parent}
             style={{
               display: "flex",
               flexWrap: "wrap",
@@ -102,12 +100,23 @@ const Main = () => {
                   }}
                 >
                   <img
-                    src="https://cdn.icon-icons.com/icons2/2459/PNG/96/favourite_heart_button_like_icon_149069.png"
+                    src={
+                      addToBooksmarks[item.id]
+                        ? "https://cdn-icons-png.flaticon.com/128/14025/14025023.png"
+                        : "https://cdn.icon-icons.com/icons2/2459/PNG/96/favourite_heart_button_like_icon_149069.png"
+                    }
                     alt=""
-                    style={{ width: "30px", height: "30px" }}
-                    onClick={() => AddToBooksmarks(item)}
+                    className="booksmarks"
+                    onClick={() => AddToBooksmarks(item, item.id)}
                   />
-                  <img src={item.image} alt="" className="productsImage" />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img src={item.image} alt="" className="productsImage" />
+                  </div>
                 </div>
                 <div style={{ paddingLeft: "30px" }}>
                   <b>Мужские кроссовки</b>
@@ -129,18 +138,16 @@ const Main = () => {
                       </b>
                     </div>
                   </div>
-                  <div onClick={() => addtobasket(item, item.id)}>
-                    {cardStates[item.id] ? (
-                      <img
-                        src="https://cdn-icons-png.flaticon.com/128/8832/8832138.png"
-                        className="basketTrue"
-                      />
-                    ) : (
-                      <img
-                        src="https://cdn-icons-png.flaticon.com/128/8212/8212741.png"
-                        className="basketFalse"
-                      />
-                    )}
+                  <div>
+                    <img
+                      src={
+                        addedToBasket[item.id]
+                          ? "https://cdn-icons-png.flaticon.com/128/8832/8832138.png"
+                          : "https://cdn-icons-png.flaticon.com/128/8212/8212741.png"
+                      }
+                      className="basket"
+                      onClick={() => addtobasket(item, item.id)}
+                    />
                   </div>
                 </div>
               </div>

@@ -1,10 +1,14 @@
 import React from "react";
-import { useGetBooksmarksQuery } from "../api/Booksmarks";
+import { removeToBooksmarks, useGetBooksmarksQuery } from "../api/Booksmarks";
 import Skeleton from "../skeleton/Skeleton";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useRemoveToBasketMutation } from "../api/Basket";
 
 const Bookmarks = () => {
   const { isLoading, data = [] } = useGetBooksmarksQuery();
   const loaderArray = Array.from({ length: 5 }, (_, index) => index);
+  const [removetoBooksmarks] = useRemoveToBasketMutation();
+  const [parent, enableAnimations] = useAutoAnimate();
   return (
     <div style={{ background: "white", paddingTop: "50px" }}>
       <div
@@ -32,6 +36,7 @@ const Bookmarks = () => {
           </div>
         )}
         <div
+          ref={parent}
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -48,11 +53,18 @@ const Bookmarks = () => {
                 }}
               >
                 <img
-                  src="https://cdn.icon-icons.com/icons2/2459/PNG/96/favourite_heart_button_like_icon_149069.png"
+                  src="https://cdn-icons-png.flaticon.com/128/14025/14025023.png"
                   alt=""
-                  style={{ width: "30px", height: "30px" }}
+                  className="booksmarks"
                 />
-                <img src={item.image} alt="" className="productsImage" />
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <img src={item.image} alt="" className="productsImage" />
+                </div>
               </div>
               <div style={{ paddingLeft: "30px" }}>
                 <b>Мужские кроссовки</b>
@@ -63,7 +75,12 @@ const Bookmarks = () => {
               <br />
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div>
-                  <div style={{ color: "gray", paddingLeft: "30px" }}>
+                  <div
+                    style={{
+                      color: "gray",
+                      paddingLeft: "30px",
+                    }}
+                  >
                     ЦЕНА:
                   </div>
                   <div style={{ paddingLeft: "30px" }}>
@@ -71,6 +88,19 @@ const Bookmarks = () => {
                       {item.price} <b>₽</b>
                     </b>
                   </div>
+                  <img
+                    onClick={() => removetoBooksmarks(item.id)}
+                    src="https://cdn.icon-icons.com/icons2/1510/PNG/96/closecrossthincircularbutton_104665.png"
+                    alt=""
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      position: "absolute",
+                      bottom: "35px",
+                      right: "10px",
+                      padding: "15px 15px 0px 0px ",
+                    }}
+                  />
                 </div>
               </div>
             </div>
